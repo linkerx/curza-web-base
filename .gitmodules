@@ -1,0 +1,3 @@
+[submodule "src/app"]
+	path = src/app
+	url = https://github.com/linkerx/curza-web-frontend.git

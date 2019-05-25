@@ -1,0 +1,2 @@
+/etc/ssl/certs/curza.uncoma.edu.ar.pem curza.uncoma.edu.ar
+/etc/ssl/certs/admin.curza.uncoma.edu.ar.pem admin.curza.uncoma.edu.ar
