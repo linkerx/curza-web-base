@@ -12,6 +12,9 @@ services:
     environment:
       REACT_APP_WP_API_URL: '${WP_API_URL}'
       REACT_APP_WP_API_PREFIX: '${WP_API_PREFIX}'
+      REACT_APP_PROGRAMAS_URL: '${PROGRAMAS_URL}'
+      REACT_APP_PROGRAMAS_PREFIX: '${PROGRAMAS_PREFIX}'  
+      REACT_APP_PROGRAMAS_ROUTE: '${PROGRAMAS_ROUTE}'
 
   curza-haproxy:
     container_name: curza-haproxy
