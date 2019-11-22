@@ -18,15 +18,18 @@ services:
   
   curza-prod:
     container_name: curza-prod
-    image: nginx:1.15
+    image: php:7.3
     restart: always
     working_dir: /app
     volumes:
-      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./src/app/build:/app
     ports:
       - 8040:8000
     environment:
+      DB_HOST: 'curza-db'
+      DB_USER: '${MYSQL_USER}'
+      DB_PASSWORD: '${MYSQL_PASSWORD}'
+      DB_NAME: '${MYSQL_DATABASE}'
       REACT_APP_WP_API_URL: '${WP_API_URL}'
       REACT_APP_WP_API_PREFIX: '${WP_API_PREFIX}'
       REACT_APP_PROGRAMAS_URL: '${PROGRAMAS_URL}'
