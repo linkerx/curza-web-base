@@ -55,3 +55,5 @@ services:
       MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
     external_links:
       - curza-db:db
+    ports:
+      - "${DBADMIN_PORT}:80"
