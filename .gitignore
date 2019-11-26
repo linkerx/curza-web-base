@@ -1,3 +1,5 @@
 data
 .env
 src/wordpress
+src/app/build
+config/frontserver/build
