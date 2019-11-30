@@ -1,8 +1,7 @@
 version: '2'
 
 services:
-  curza-app:
-    container_name: curza-app
+  react:
     image: node:10.15
     restart: always
     working_dir: /app
@@ -18,9 +17,8 @@ services:
     ports:
       - "${FRONT_PORT}:3000"
 
-  curza-wordpress:
+  wordpress:
     restart: always
-    container_name: curza-wordpress
     image: wordpress
     volumes:
      - ./src/wordpress:/var/www/html
@@ -35,8 +33,7 @@ services:
     ports:
       - "${BACK_PORT}:80"
 
-  curza-db:
-    container_name: curza-db
+  db:
     image: mariadb:10.2
     environment:
       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
@@ -46,7 +43,7 @@ services:
     volumes:
      - ./data/mysql:/var/lib/mysql
 
-  curza-dbadmin:
+  dbadmin:
     image: phpmyadmin/phpmyadmin:4.7
     environment:
       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
@@ -54,6 +51,16 @@ services:
       MYSQL_USER: '${MYSQL_USER}'
       MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
     external_links:
-      - curza-db:db
+      - db:db
     ports:
       - "${DBADMIN_PORT}:80"
+
+  haproxy:
+    image: haproxy:1.9
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./config/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+      - ./config/haproxy/crt-list.txt:/usr/local/etc/haproxy/crt-list.txt
+      - ./config/haproxy/certs:/etc/ssl/certs
