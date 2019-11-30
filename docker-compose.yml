@@ -65,4 +65,8 @@ services:
       - ./config/haproxy/crt-list.txt:/usr/local/etc/haproxy/crt-list.txt
       - ./config/haproxy/certs:/etc/ssl/certs
 
-      #prue
+  cypress:
+    image: cypress/included:3.2.0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+#      - ./config/cypress:/e2e
