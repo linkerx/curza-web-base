@@ -7,7 +7,7 @@ services:
     working_dir: /app
     command: npm start
     volumes:
-     - /var/jenkins_home/workspace/curza-frontend/src/app:/app
+     - /var/jenkins_home/workspace/curza/src/app:/app
     environment:
       REACT_APP_WP_API_URL: '${WP_API_URL}'
       REACT_APP_WP_API_PREFIX: '${WP_API_PREFIX}'
