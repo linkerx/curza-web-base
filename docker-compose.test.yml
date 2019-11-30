@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  react:
+    image: node:10.15
+    restart: always
+    working_dir: /app
+    command: npm start
+    volumes:
+     - /var/jenkins_home/curza-frontend/src/app:/app
+    environment:
+      REACT_APP_WP_API_URL: '${WP_API_URL}'
+      REACT_APP_WP_API_PREFIX: '${WP_API_PREFIX}'
+      REACT_APP_PROGRAMAS_URL: '${PROGRAMAS_URL}'
+      REACT_APP_PROGRAMAS_PREFIX: '${PROGRAMAS_PREFIX}'  
+      REACT_APP_PROGRAMAS_ROUTE: '${PROGRAMAS_ROUTE}'
+    ports:
+      - "${FRONT_PORT}:3000"
