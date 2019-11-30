@@ -64,3 +64,5 @@ services:
       - ./config/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
       - ./config/haproxy/crt-list.txt:/usr/local/etc/haproxy/crt-list.txt
       - ./config/haproxy/certs:/etc/ssl/certs
+
+      #prueba
