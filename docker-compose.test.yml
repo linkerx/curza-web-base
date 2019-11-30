@@ -3,7 +3,6 @@ version: '2'
 services:
   react:
     image: node:10.15
-    restart: always
     working_dir: /app
     command: npm start
     volumes:
@@ -16,3 +15,9 @@ services:
       REACT_APP_PROGRAMAS_ROUTE: '${PROGRAMAS_ROUTE}'
     ports:
       - "${FRONT_PORT}:3000"
+
+  cypress:
+    image: cypress/included:3.2.0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /app/jenkins/data/workspace/curza/config/cypress:/e2e
