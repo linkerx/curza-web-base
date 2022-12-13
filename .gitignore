@@ -3,3 +3,4 @@ data
 src/wordpress
 src/app/build
 config/frontserver/build
+liaima-docker-compose.yml
